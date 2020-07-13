@@ -2237,12 +2237,12 @@ pre {
  * 1. Remove the gray background on active links in IE 10.
  * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
  */
-/* a { */
-  /* background-color: transparent; */
+a {
+  background-color: transparent;
   /* 1 */
-  /* -webkit-text-decoration-skip: objects; */
+  -webkit-text-decoration-skip: objects;
   /* 2 */
-/* } */
+}
 
 /**
  * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
@@ -2605,11 +2605,11 @@ ul:not(.browser-default) > li {
   list-style-type: none;
 }
 
-/* a {
+a {
   color: #039be5;
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-} */
+}
 
 .valign-wrapper {
   display: -webkit-box;
@@ -2734,26 +2734,26 @@ video.responsive-video {
   height: 30px;
 }
 
-/* .pagination li a {
+.pagination li a {
   color: #444;
   display: inline-block;
   font-size: 1.2rem;
   padding: 0 10px;
   line-height: 30px;
-} */
+}
 
-/* .pagination li.active a {
+.pagination li.active a {
   color: #fff;
-} */
+}
 
 .pagination li.active {
   background-color: #ee6e73;
 }
 
-/* .pagination li.disabled a {
+.pagination li.disabled a {
   cursor: default;
   color: #999;
-} */
+}
 
 .pagination li i {
   font-size: 2rem;
@@ -4291,9 +4291,9 @@ nav.nav-extended .nav-content {
   line-height: normal;
 }
 
-/* nav a {
+nav a {
   color: #fff;
-} */
+}
 
 nav i,
 nav [class^="mdi-"], nav [class*="mdi-"],
@@ -4395,7 +4395,7 @@ nav ul li.active {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* nav ul a {
+nav ul a {
   -webkit-transition: background-color .3s;
   transition: background-color .3s;
   font-size: 1rem;
@@ -4403,7 +4403,7 @@ nav ul li.active {
   display: block;
   padding: 0 15px;
   cursor: pointer;
-} */
+}
 
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-small, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
   margin-top: -2px;
@@ -4483,10 +4483,10 @@ nav .input-field label.active i {
     height: 64px;
   }
 }
-/*
+
 a {
   text-decoration: none;
-} */
+}
 
 html {
   line-height: 1.5;
@@ -4518,9 +4518,9 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
 }
 
-/* h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: inherit;
-} */
+}
 
 h1 {
   font-size: 4.2rem;
@@ -5074,7 +5074,7 @@ small {
   text-transform: uppercase;
 }
 
-/* .tabs .tab a {
+.tabs .tab a {
   color: rgba(238, 110, 115, 0.7);
   display: block;
   width: 100%;
@@ -5085,7 +5085,7 @@ small {
   overflow: hidden;
   -webkit-transition: color .28s ease, background-color .28s ease;
   transition: color .28s ease, background-color .28s ease;
-} */
+}
 
 .tabs .tab a:focus, .tabs .tab a:focus.active {
   background-color: rgba(246, 178, 181, 0.2);
@@ -5124,9 +5124,9 @@ small {
         -ms-flex-positive: 1;
             flex-grow: 1;
   }
-  /* .tabs .tab a {
+  .tabs .tab a {
     padding: 0 12px;
-  } */
+  }
 }
 
 .material-tooltip {
@@ -5443,7 +5443,7 @@ button.btn-floating {
   transition: none;
 }
 
-/* .fixed-action-btn.toolbar ul li a {
+.fixed-action-btn.toolbar ul li a {
   display: block;
   overflow: hidden;
   position: relative;
@@ -5455,7 +5455,7 @@ button.btn-floating {
   color: #fff;
   line-height: 56px;
   z-index: 1;
-} */
+}
 
 .fixed-action-btn.toolbar ul li a i {
   line-height: inherit;
@@ -5923,9 +5923,9 @@ body.keyboard-focused .dropdown-content li:focus {
 }
 
 .sidenav .collapsible-body li a,
-/* .sidenav.fixed .collapsible-body li a {
+.sidenav.fixed .collapsible-body li a {
   padding: 0 23.5px 0 31px;
-} */
+}
 
 .collapsible.popout {
   border: none;
@@ -7506,7 +7506,7 @@ input[type=range]::-ms-thumb {
   padding: 2px 0;
 }
 
-/* .table-of-contents a {
+.table-of-contents a {
   display: inline-block;
   font-weight: 300;
   color: #757575;
@@ -7515,7 +7515,7 @@ input[type=range]::-ms-thumb {
   line-height: 1.5rem;
   letter-spacing: .4;
   display: inline-block;
-} */
+}
 
 .table-of-contents a:hover {
   color: #a8a8a8;
@@ -7573,7 +7573,7 @@ input[type=range]::-ms-thumb {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* .sidenav li > a {
+.sidenav li > a {
   color: rgba(0, 0, 0, 0.87);
   display: block;
   font-size: 14px;
@@ -7581,7 +7581,7 @@ input[type=range]::-ms-thumb {
   height: 48px;
   line-height: 48px;
   padding: 0 32px;
-} */
+}
 
 .sidenav li > a:hover {
   background-color: rgba(0, 0, 0, 0.05);
@@ -7641,10 +7641,10 @@ input[type=range]::-ms-thumb {
   margin-bottom: 8px;
 }
 
-/* .sidenav .user-view > a {
+.sidenav .user-view > a {
   height: auto;
   padding: 0;
-} */
+}
 
 .sidenav .user-view > a:hover {
   background-color: transparent;
@@ -7718,9 +7718,9 @@ input[type=range]::-ms-thumb {
     -webkit-transform: translateX(105%);
             transform: translateX(105%);
   }
-  /* .sidenav > a {
+  .sidenav > a {
     padding: 0 16px;
-  } */
+  }
   .sidenav .user-view {
     padding: 16px 16px 0;
   }
@@ -7731,10 +7731,10 @@ input[type=range]::-ms-thumb {
   background-color: #ee6e73;
 }
 
-/* .sidenav .collapsible-body > ul:not(.collapsible) > li.active a, */
-/* .sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a {
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active a,
+.sidenav.sidenav-fixed .collapsible-body > ul:not(.collapsible) > li.active a {
   color: #fff;
-} */
+}
 
 .sidenav .collapsible-body {
   padding: 0;

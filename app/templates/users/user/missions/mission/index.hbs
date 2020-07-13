@@ -1,0 +1,13 @@
+<h2 align="center">Page Mission</h2>
+
+<ul align="center">
+  {{log "model mission" model}}
+  <h3 align="center">{{model.id}}</h3>
+  <p align="center">title: {{model.title}} </p>
+  <p align="center">result: {{model.result}} </p>
+  <p align="center">time: {{model.time}} </p>
+</ul>
+
+<LinkTo @route="users.user.missions.mission.tasks">
+  <p align="center">Get page Tasks</p>
+</LinkTo>

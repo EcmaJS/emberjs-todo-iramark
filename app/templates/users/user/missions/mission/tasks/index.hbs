@@ -1,0 +1,22 @@
+<h2 align="center">Page Tasks</h2>
+<table class="centered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  {{#each @model as |task|}}
+  <tbody>
+    <tr>
+      <LinkTo @route="users.user.missions.mission.tasks.task" @model={{task.id}}>
+        <td>{{task.id}}</td>
+      </LinkTo>
+      <td>{{task.title}}</td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
+{{!-- <LinkTo @route="users.user.missions.mission.tasks.task">
+  <p align="center">Get page task</p>
+</LinkTo> --}}

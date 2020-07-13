@@ -1,0 +1,15 @@
+<h2 align="center">Page User</h2>
+
+<ul align="center">
+  {{log "123" model}}
+  <h3 align="center">{{model.id}}</h3>
+  <p align="center">email: {{model.email}} </p>
+  <p align="center">age: {{model.age}} </p>
+
+</ul>
+
+
+
+<LinkTo @route="users.user.missions">
+  <p align="center">Get page Missions</p>
+</LinkTo>

@@ -1,0 +1,27 @@
+<h2 align="center">Page Users</h2>
+<table class="centered">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  {{#each @model as |user|}}
+  <tbody>
+
+    <tr>
+
+      <td>{{user.id}} </td>
+      <LinkTo @route="users.user" @model={{user.id}}>
+        <td>{{user.name}}</td>
+      </LinkTo>
+      <td>{{user.age}}</td>
+    </tr>
+
+  </tbody>
+  {{/each}}
+</table>
+{{!-- <LinkTo @route="users.user" @model="user">
+  <p align="center">Get page User</p>
+</LinkTo> --}}
