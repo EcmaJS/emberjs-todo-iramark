@@ -3,17 +3,23 @@ import { underscore } from '@ember/string';
 import { get } from '@ember/object';
 
 export default JSONSerializer.extend({
-  // normalize(typeClass, hash) {
-  //   var fields = get(typeClass, 'fields');
+  // serialize(snapshot, options) {
+  //   console.log("snapshot", snapshot);
+  //   console.log("options", options);
+  //   console.log("super", this._super(...arguments));
+  //   const obj = this._super(...arguments);
+  //   obj["id"] = snapshot.id
+  //   const resultObj = {};
 
-  //   fields.forEach(function(type, field) {
-  //     var payloadField = underscore(field);
-  //     if (field === payloadField) { return; }
 
-  //     hash[field] = hash[payloadField];
-  //     delete hash[payloadField];
-  //   });
+  //   for(let key in obj) {
+  //     resultObj[`"${key}"`] = obj.key;
+  //     // key = key.toString();
+  //     console.log('key', key)
+  //   }
 
-  //   return this._super.apply(this, arguments);
+  //   // console.log(JSON.stringify(obj));
+  //   // return JSON.stringify(obj);
+  //   return resultObj;
   // }
 });
