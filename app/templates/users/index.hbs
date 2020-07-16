@@ -1,14 +1,21 @@
-<h2 align="center">Page Users</h2>
+<style>
+  body {
+    background: #c7b39b url(https://ramki-vsem.ru/fony/fioletovyj-fon19.jpg);
+    color: rgb(255, 255, 255);
+    /* Цвет текста */
+  }
+</style>
 
-<button type="submit" class="btn btn-xl btn-success mr-2" {{action "showModal"}}>
+<h2 align="center" color=#fff;>Page Users</h2>
+
+<button type="submit" class="btn btn-xl btn-primary mr-2" {{action "showModal"}}>
   Create User
 </button>
 
 <BsModal @open={{isShowModal}} @onSubmit={{action "submit"}} @onHidden={{action (mut isShowModal) false}} as |modal|>
   <modal.header>
     <h4 class="modal-title">
-      Custom Dialog
-      <div class="badge">2</div>
+      New User
     </h4>
   </modal.header>
   <modal.body>
@@ -35,8 +42,18 @@
         {{input type="text" class="form-control mb-2 mr-sm-2" id="gender" placeholder="f/m" value=user.gender}}
       </div>
       <div class="form-group">
-        <label class="sr-only" for="age">Age</label>
-        {{input type="text" class="form-control mb-2 mr-sm-2" id="age" placeholder="age"}}
+        <label class="sr-only" for="age">DOB</label>
+        <PowerDatepicker @selected={{selected}} @onSelect={{action (mut selected) value="date"}} as |dp|>
+          <dp.Trigger tabindex="-1">
+            {{input type="date" class="form-control mb-2 mr-sm-2" id="DOB" placeholder="DOB" value=user.DOB}}
+          </dp.Trigger>
+
+          <dp.Content class="demo-datepicker-small">
+            <dp.Nav />
+            <dp.Days />
+          </dp.Content>
+        </PowerDatepicker>
+        {{!-- {{input type="date" class="form-control mb-2 mr-sm-2" id="DOB" placeholder="DOB" value=user.DOB}} --}}
       </div>
     </form>
   </modal.body>
@@ -51,6 +68,7 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
+      <th>Date</th>
       <th>Age</th>
     </tr>
   </thead>
@@ -62,7 +80,12 @@
       <LinkTo @route="users.user" @model={{user.id}}>
         <td>{{user.name}}</td>
       </LinkTo>
-      <td>{{user.age}}</td>
+      <td>
+        {{user.date}}
+      </td>
+      <td>
+        {{user.age}}
+      </td>
     </tr>
 
   </tbody>

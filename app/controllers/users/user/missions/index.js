@@ -19,7 +19,6 @@ export default class UsersUserMissionsIndexController extends Controller {
     this.mission.userId = this.get('userId');
     const payload = this.store.createRecord('mission', this.mission);
     console.log(payload);
-
     payload.save();
   }
 

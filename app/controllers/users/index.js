@@ -8,13 +8,14 @@ export default class UsersIndexController extends Controller {
     "password": '',
     "email": '',
     "gender": '',
-    "age": null
+    "DOB": null
   }
   isShowModal = false;
 
   @action
   submit() {
-    console.log(this.user);
+    console.log(new Date(this.user.DOB).toISOString());
+    this.user.DOB = new Date(this.user.DOB).toISOString();
     const payload = this.store.createRecord('user', this.user);
     console.log(payload);
 
