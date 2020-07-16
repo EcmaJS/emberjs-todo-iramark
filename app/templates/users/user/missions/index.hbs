@@ -1,4 +1,47 @@
 <h2 align="center">Page Missions</h2>
+
+<button type="submit" class="btn btn-xl btn-success mr-2" {{action "showModal"}}>
+  Create mission
+</button>
+
+<BsModal @open={{isShowModal}} @onSubmit={{action "submit"}} @onHidden={{action (mut isShowModal) false}} as |modal|>
+  <modal.header>
+    <h4 class="modal-title">
+      Custom Dialog
+      <div class="badge">2</div>
+    </h4>
+  </modal.header>
+  <modal.body>
+    <form class="form" {{action "submit" on="submit"}}>
+      <div class="form-group">
+        <label class="sr-only" for="id">Id</label>
+        {{log user}}
+        {{input type="number" class="form-control mb-2 mr-sm-2" id="id" placeholder="id" value=mission.id}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="name">Title</label>
+        {{input type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="title" value=mission.title}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="password">Status</label>
+        {{input type="text" class="form-control mb-2 mr-sm-2" id="password" placeholder="status" value=mission.status}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="email">Result</label>
+        {{input type="number" class="form-control mb-2 mr-sm-2" id="email" placeholder="result" value=mission.result}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="gender">Time</label>
+        {{input type="number" class="form-control mb-2 mr-sm-2" id="gender" placeholder="time" value=mission.time}}
+      </div>
+    </form>
+  </modal.body>
+  <modal.footer>
+    <BsButton @onClick={{action showModal}}>Cancel</BsButton>
+    <BsButton @type="primary" @onClick={{action submit}}>Submit</BsButton>
+  </modal.footer>
+</BsModal>
+
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -17,30 +60,3 @@
   </tbody>
   {{/each}}
 </table>
-
-<h2 align="center">Create mission</h2>
-<form class="form" {{action "submit" on="submit"}}>
-  <div class="form-group">
-    <label class="sr-only" for="id">Id</label>
-    {{log user}}
-    {{input type="number" class="form-control mb-2 mr-sm-2" id="id" placeholder="id" value=mission.id}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="name">Title</label>
-    {{input type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="title" value=mission.title}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="password">Status</label>
-    {{input type="text" class="form-control mb-2 mr-sm-2" id="password" placeholder="status" value=mission.status}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="email">Result</label>
-    {{input type="number" class="form-control mb-2 mr-sm-2" id="email" placeholder="result" value=mission.result}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="gender">Time</label>
-    {{input type="number" class="form-control mb-2 mr-sm-2" id="gender" placeholder="time" value=mission.time}}
-  </div>
-
-  <button type="submit" class="btn btn-primary mb-2" >Submit</button>
-</form>

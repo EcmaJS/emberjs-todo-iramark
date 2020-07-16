@@ -10,6 +10,7 @@ export default class UsersUserMissionsMissionTasksIndexController extends Contro
     "time": null,
     "missionId": ''
   }
+  isShowModal = false;
 
   @action
   submit() {
@@ -18,5 +19,10 @@ export default class UsersUserMissionsMissionTasksIndexController extends Contro
     console.log(payload);
 
     payload.save();
+  }
+
+  @action
+  showModal() {
+    this.toggleProperty('isShowModal')
   }
 }

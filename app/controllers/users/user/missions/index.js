@@ -12,6 +12,8 @@ export default class UsersUserMissionsIndexController extends Controller {
     "userId": ''
   }
 
+  isShowModal = false;
+
   @action
   submit() {
     this.mission.userId = this.get('userId');
@@ -19,5 +21,10 @@ export default class UsersUserMissionsIndexController extends Controller {
     console.log(payload);
 
     payload.save();
+  }
+
+  @action
+  showModal() {
+    this.toggleProperty('isShowModal')
   }
 }

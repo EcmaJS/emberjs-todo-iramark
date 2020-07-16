@@ -10,6 +10,7 @@ export default class UsersIndexController extends Controller {
     "gender": '',
     "age": null
   }
+  isShowModal = false;
 
   @action
   submit() {
@@ -18,5 +19,10 @@ export default class UsersIndexController extends Controller {
     console.log(payload);
 
     payload.save();
+  }
+
+  @action
+  showModal() {
+    this.toggleProperty('isShowModal')
   }
 }

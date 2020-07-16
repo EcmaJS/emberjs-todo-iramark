@@ -1,4 +1,51 @@
 <h2 align="center">Page Users</h2>
+
+<button type="submit" class="btn btn-xl btn-success mr-2" {{action "showModal"}}>
+  Create User
+</button>
+
+<BsModal @open={{isShowModal}} @onSubmit={{action "submit"}} @onHidden={{action (mut isShowModal) false}} as |modal|>
+  <modal.header>
+    <h4 class="modal-title">
+      Custom Dialog
+      <div class="badge">2</div>
+    </h4>
+  </modal.header>
+  <modal.body>
+    <form class="form" {{action "submit" on="submit"}}>
+      <div class="form-group">
+        <label class="sr-only" for="id">Id</label>
+        {{log user}}
+        {{input type="text" class="form-control mb-2 mr-sm-2" id="id" placeholder="id" value=user.id}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="name">Name</label>
+        {{input type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="name" value=user.name}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="password">Password</label>
+        {{input type="password" class="form-control mb-2 mr-sm-2" id="password" placeholder="password" value=user.password}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="email">Email</label>
+        {{input type="text" class="form-control mb-2 mr-sm-2" id="email" placeholder="email" value=user.email}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="gender">Gender</label>
+        {{input type="text" class="form-control mb-2 mr-sm-2" id="gender" placeholder="f/m" value=user.gender}}
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="age">Age</label>
+        {{input type="text" class="form-control mb-2 mr-sm-2" id="age" placeholder="age"}}
+      </div>
+    </form>
+  </modal.body>
+  <modal.footer>
+    <BsButton @onClick={{action showModal}}>Cancel</BsButton>
+    <BsButton @type="primary" @onClick={{action submit}}>Submit</BsButton>
+  </modal.footer>
+</BsModal>
+
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -21,34 +68,3 @@
   </tbody>
   {{/each}}
 </table>
-
-<h2 align="center">Create user</h2>
-<form class="form" {{action "submit" on="submit"}}>
-  <div class="form-group">
-    <label class="sr-only" for="id">Id</label>
-    {{log user}}
-    {{input type="text" class="form-control mb-2 mr-sm-2" id="id" placeholder="id" value=user.id}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="name">Name</label>
-    {{input type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="name" value=user.name}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="password">Password</label>
-    {{input type="password" class="form-control mb-2 mr-sm-2" id="password" placeholder="password" value=user.password}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="email">Email</label>
-    {{input type="text" class="form-control mb-2 mr-sm-2" id="email" placeholder="email" value=user.email}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="gender">Gender</label>
-    {{input type="text" class="form-control mb-2 mr-sm-2" id="gender" placeholder="f/m" value=user.gender}}
-  </div>
-  <div class="form-group">
-    <label class="sr-only" for="age">Age</label>
-    {{input type="text" class="form-control mb-2 mr-sm-2" id="age" placeholder="age" value=user.id}}
-  </div>
-
-  <button type="submit" class="btn btn-primary mb-2" >Submit</button>
-</form>
