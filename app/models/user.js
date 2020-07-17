@@ -10,6 +10,12 @@ export default class UserModel extends Model {
   @attr('string') password;
   @attr('string') gender;
 
+  schema = [{ key:'id', label: 'Id'},
+  { key, label },
+  { key, label },
+  { key, label },
+  { key, label },
+  { key, label }];
   // @computed('DOB').readOnly()
   // get getDate() {
   //   return `${this.firstName} ${this.lastName}`;

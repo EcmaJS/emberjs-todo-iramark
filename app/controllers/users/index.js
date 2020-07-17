@@ -38,4 +38,11 @@ export default class UsersIndexController extends Controller {
   showModal() {
     this.toggleProperty('isShowModal')
   }
+
+  @action
+  linkToUser(id) {
+    console.log('id controller', id);
+
+    this.transitionToRoute('users.user', id);
+  }
 }

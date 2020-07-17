@@ -1,0 +1,33 @@
+<aside ...attributes>
+  {{log 'users' @model}}
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    {{#each @model as |user|}}
+    <tbody>
+      <tr {{action 'link' user.id}}>
+        <td class="a2">{{user.id}}</td>
+        {{!-- <LinkTo @route="users.user" @model={{user.id}}> --}}
+          <td class="a3">{{user.name}}</td>
+        {{!-- </LinkTo> --}}
+
+        <td class="a2">
+
+          {{user.date}}
+        </td>
+        <td class="a2">
+          {{user.age}}
+        </td>
+      </tr>
+
+    </tbody>
+    {{/each}}
+  </table>
+</aside>
+{{yield}}
