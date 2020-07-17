@@ -1,20 +1,30 @@
+<style>
+  body {
+    background: #100436 url(https://ramki-vsem.ru/fony/fioletovyj-fon19.jpg);
+    color: rgb(255, 255, 255);
+    /* Цвет текста */
+  }
+</style>
 <h2 align="center">Page Tasks</h2>
 
-<button type="submit" class="btn btn-xl btn-success mr-2" {{action "showModal"}}>
-  Create task
-</button>
+<div class="button-center">
+  <button type="submit" class="btn btn-xl btn-primary mr-2" {{action "showModal"}}>
+    Create task
+  </button>
+</div>
 
 <BsModal @open={{isShowModal}} @onSubmit={{action "submit"}} @onHidden={{action (mut isShowModal) false}} as |modal|>
   <modal.header>
-    <h4 class="modal-title">
-      New Task
-    </h4>
+    <div class="a1">
+      <h4 class="modal-title">
+        New Task
+      </h4>
+    </div>
   </modal.header>
   <modal.body>
     <form class="form" {{action "submit" on="submit"}}>
       <div class="form-group">
         <label class="sr-only" for="id">Id</label>
-        {{log user}}
         {{input type="number" class="form-control mb-2 mr-sm-2" id="id" placeholder="id" value=task.id}}
       </div>
       <div class="form-group">
@@ -33,13 +43,21 @@
         <label class="sr-only" for="gender">Time</label>
         {{input type="number" class="form-control mb-2 mr-sm-2" id="gender" placeholder="time" value=task.time}}
       </div>
-
-      <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
   </modal.body>
   <modal.footer>
     <BsButton @onClick={{action showModal}}>Cancel</BsButton>
-    <BsButton @type="primary" @onClick={{action submit}}>Submit</BsButton>
+    <BsButton @type="primary" @onClick={{action submit}}>
+      {{log createTaskPromise.isPending}}
+      {{log "createTaskPromise" createTaskPromise}}
+      {{#if createTaskPromise.isPending}}
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      {{else}}
+      Submit
+      {{/if}}
+    </BsButton>
   </modal.footer>
 </BsModal>
 
@@ -54,9 +72,9 @@
   <tbody>
     <tr>
       <LinkTo @route="users.user.missions.mission.tasks.task" @model={{task.id}}>
-        <td>{{task.id}}</td>
+        <td class="a3">{{task.id}}</td>
       </LinkTo>
-      <td>{{task.title}}</td>
+      <td class="a2">{{task.title}}</td>
     </tr>
   </tbody>
   {{/each}}

@@ -1,22 +1,26 @@
 <style>
   body {
-    background: #c7b39b url(https://ramki-vsem.ru/fony/fioletovyj-fon19.jpg);
+    background: #100436 url(https://ramki-vsem.ru/fony/fioletovyj-fon19.jpg);
     color: rgb(255, 255, 255);
     /* Цвет текста */
   }
 </style>
 
-<h2 align="center" color=#fff;>Page Users</h2>
+<h2 align="center">Page Users</h2>
 
+<div class="button-center">
 <button type="submit" class="btn btn-xl btn-primary mr-2" {{action "showModal"}}>
   Create User
 </button>
+</div>
 
 <BsModal @open={{isShowModal}} @onSubmit={{action "submit"}} @onHidden={{action (mut isShowModal) false}} as |modal|>
   <modal.header>
-    <h4 class="modal-title">
-      New User
-    </h4>
+    <div class="a1">
+      <h4 class="modal-title">
+        New User
+      </h4>
+    </div>
   </modal.header>
   <modal.body>
     <form class="form" {{action "submit" on="submit"}}>
@@ -59,7 +63,18 @@
   </modal.body>
   <modal.footer>
     <BsButton @onClick={{action showModal}}>Cancel</BsButton>
-    <BsButton @type="primary" @onClick={{action submit}}>Submit</BsButton>
+    <BsButton @type="primary" @onClick={{action submit}}>
+      {{log createUserPromise.isPending}}
+      {{log "createUserPromise" createUserPromise}}
+      {{#if createUserPromise.isPending}}
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      {{else}}
+      Submit
+      {{/if}}
+
+    </BsButton>
   </modal.footer>
 </BsModal>
 
@@ -76,14 +91,18 @@
   <tbody>
 
     <tr>
-      <td>{{user.id}} </td>
+
+      <td class="a2">{{user.id}}</td>
+
       <LinkTo @route="users.user" @model={{user.id}}>
-        <td>{{user.name}}</td>
+          <td class="a3">{{user.name}}</td>
       </LinkTo>
-      <td>
+
+      <td class="a2">
+
         {{user.date}}
       </td>
-      <td>
+      <td class="a2">
         {{user.age}}
       </td>
     </tr>

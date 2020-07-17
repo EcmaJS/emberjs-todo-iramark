@@ -1,20 +1,31 @@
+<style>
+  body {
+    background: #100436 url(https://ramki-vsem.ru/fony/fioletovyj-fon19.jpg);
+    color: rgb(255, 255, 255);
+    /* Цвет текста */
+  }
+</style>
+
 <h2 align="center">Page Missions</h2>
 
-<button type="submit" class="btn btn-xl btn-success mr-2" {{action "showModal"}}>
-  Create mission
-</button>
+<div class="button-center">
+  <button type="submit" class="btn btn-xl btn-primary mr-2" {{action "showModal"}}>
+    Create mission
+  </button>
+</div>
 
 <BsModal @open={{isShowModal}} @onSubmit={{action "submit"}} @onHidden={{action (mut isShowModal) false}} as |modal|>
   <modal.header>
-    <h4 class="modal-title">
-      New mission
-    </h4>
+    <div class="a1">
+      <h4 class="modal-title">
+        New mission
+      </h4>
+    </div>
   </modal.header>
   <modal.body>
     <form class="form" {{action "submit" on="submit"}}>
       <div class="form-group">
         <label class="sr-only" for="id">Id</label>
-        {{log user}}
         {{input type="number" class="form-control mb-2 mr-sm-2" id="id" placeholder="id" value=mission.id}}
       </div>
       <div class="form-group">
@@ -37,7 +48,17 @@
   </modal.body>
   <modal.footer>
     <BsButton @onClick={{action showModal}}>Cancel</BsButton>
-    <BsButton @type="primary" @onClick={{action submit}}>Submit</BsButton>
+        <BsButton @type="primary" @onClick={{action submit}}>
+      {{log createMissionPromise.isPending}}
+      {{log "createMissionPromise" createMissionPromise}}
+      {{#if createMissionPromise.isPending}}
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      {{else}}
+      Submit
+      {{/if}}
+    </BsButton>
   </modal.footer>
 </BsModal>
 
@@ -52,9 +73,9 @@
   <tbody>
     <tr>
       <LinkTo @route="users.user.missions.mission" @model={{mission.id}}>
-        <td>{{mission.title}}</td>
+        <td class="a3">{{mission.title}}</td>
       </LinkTo>
-      <td>{{mission.result}}</td>
+      <td class="a2">{{mission.result}}</td>
     </tr>
   </tbody>
   {{/each}}
