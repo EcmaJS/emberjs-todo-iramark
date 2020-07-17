@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import DS from 'ember-data';
 
 export default class UsersIndexController extends Controller {
   user = {
@@ -11,15 +12,26 @@ export default class UsersIndexController extends Controller {
     "DOB": null
   }
   isShowModal = false;
+  createUserPromise;
 
   @action
   submit() {
     console.log(new Date(this.user.DOB).toISOString());
-    this.user.DOB = new Date(this.user.DOB).toISOString();
+    this.set('user.DOB', new Date(this.user.DOB))
+    // this.user.DOB = new Date(this.user.DOB).toISOString();
     const payload = this.store.createRecord('user', this.user);
     console.log(payload);
 
-    payload.save();
+    let promise = payload.save().then(() => {
+      this.send('showModal');
+    }).catch((err) => {
+      alert(`User not create       ${err}`);
+    });
+
+    const promiseObject = DS.PromiseObject.create({
+      promise: promise
+    });
+    this.set('createUserPromise', promiseObject);
   }
 
   @action

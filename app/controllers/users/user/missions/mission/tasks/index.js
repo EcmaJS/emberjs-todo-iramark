@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import DS from 'ember-data';
 
 export default class UsersUserMissionsMissionTasksIndexController extends Controller {
   task = {
@@ -11,6 +12,7 @@ export default class UsersUserMissionsMissionTasksIndexController extends Contro
     "missionId": ''
   }
   isShowModal = false;
+  createTaskPromise;
 
   @action
   submit() {
@@ -18,7 +20,17 @@ export default class UsersUserMissionsMissionTasksIndexController extends Contro
     const payload = this.store.createRecord('task', this.task);
     console.log(payload);
 
-    payload.save();
+    let promise = payload.save().then(() => {
+      this.send('showModal');
+    }).catch((err) => {
+      alert(`Task not create:  ${err}`);
+    });
+
+    const promiseObject = DS.PromiseObject.create({
+      promise: promise
+    });
+
+    this.set('createTaskPromise', promiseObject)
   }
 
   @action
