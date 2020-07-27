@@ -8,6 +8,5 @@ export default class UsersRoute extends Route {
 
   setupController(controller) {
     console.log('controller users', controller.store);
-
   }
 }

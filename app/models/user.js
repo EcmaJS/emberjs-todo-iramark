@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
 import ComputedProperty from '@ember/object/computed';
 import EmberObject, { computed } from '@ember/object';
 
@@ -9,13 +9,14 @@ export default class UserModel extends Model {
   @attr('string') email;
   @attr('string') password;
   @attr('string') gender;
+  @hasMany('mission') missions;
 
-  schema = [{ key:'id', label: 'Id'},
-  { key, label },
-  { key, label },
-  { key, label },
-  { key, label },
-  { key, label }];
+  // schema = [{ key: 'id', label: 'Id'},
+  // { key, label },
+  // { key, label },
+  // { key, label },
+  // { key, label },
+  // { key, label }];
   // @computed('DOB').readOnly()
   // get getDate() {
   //   return `${this.firstName} ${this.lastName}`;

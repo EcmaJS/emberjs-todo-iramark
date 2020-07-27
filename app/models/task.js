@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class TaskModel extends Model {
   @attr('string') title;
@@ -6,4 +6,5 @@ export default class TaskModel extends Model {
   @attr('number') result;
   @attr('number') time;
   @attr('string') missionId;
+  @belongsTo('mission') mission;
 }

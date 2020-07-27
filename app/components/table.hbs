@@ -11,21 +11,15 @@
     </thead>
     {{#each @model as |user|}}
     <tbody>
-      <tr {{action 'link' user.id}}>
-        <td class="a2">{{user.id}}</td>
+      <tr class="a2" {{action 'link' user.id}}>
+        <td>{{user.id}}</td>
         {{!-- <LinkTo @route="users.user" @model={{user.id}}> --}}
-          <td class="a3">{{user.name}}</td>
+        <td class="a3">{{user.name}}</td>
         {{!-- </LinkTo> --}}
 
-        <td class="a2">
-
-          {{user.date}}
-        </td>
-        <td class="a2">
-          {{user.age}}
-        </td>
+        <td> {{user.date}}</td>
+        <td>{{user.age}}</td>
       </tr>
-
     </tbody>
     {{/each}}
   </table>

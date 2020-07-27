@@ -28,10 +28,18 @@
             email: {{model.email}}
           </p>
           <p class="card-text">
-            age: {{model.age}}
+            Missions:
+          </p>
+          <p class="card-text">
+            {{#each model.missions as |mission|}}
+            <li>
+              {{mission.id}}: {{mission.title}}
+            </li>
+            {{/each}}
+            {{log "lhklhlk" model.missions}}
           </p>
           <LinkTo @route="users.user.missions">
-              <a class="btn btn-outline-primary">Get Missions</a>
+            <a class="btn btn-outline-primary">Get Missions</a>
           </LinkTo>
         </div>
       </div>
