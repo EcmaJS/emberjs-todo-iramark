@@ -42,7 +42,6 @@ export default class UsersIndexController extends Controller {
   @action
   linkToUser(id) {
     console.log('id controller', id);
-
     this.transitionToRoute('users.user', id);
   }
 }

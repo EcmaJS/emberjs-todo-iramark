@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class CounterComponent extends Component {
+export default class TableComponent extends Component {
 
   @action
   link(id) {

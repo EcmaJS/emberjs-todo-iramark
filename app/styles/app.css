@@ -2,6 +2,12 @@ body {
   color: #ffffff;
 }
 
+.home {
+  cursor: pointer;
+  text-align: center;
+  color: #c7b39b00;
+}
+
 .a1 {
   color: black;
 }
@@ -9,9 +15,14 @@ body {
 .a2 {
   color: #ffffff;
 }
+.table-striped tbody .a2:hover {
+  background: #0526e0;
+  cursor: pointer;
+}
 
 .a3:hover {
   color: rgb(153, 0, 255);
+
 }
 
 .spinner-border {
