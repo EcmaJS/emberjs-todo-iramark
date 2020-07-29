@@ -37,4 +37,10 @@ export default class UsersUserMissionsMissionTasksIndexController extends Contro
   showModal() {
     this.toggleProperty('isShowModal')
   }
+
+  @action
+  linkToTask(id) {
+    console.log('id controller', id);
+    this.transitionToRoute('users.user.missions.mission.tasks.task', id);
+  }
 }

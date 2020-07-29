@@ -60,8 +60,8 @@
     </BsButton>
   </modal.footer>
 </BsModal>
-
-<table class="table table-striped">
+<TableTasks @model={{@model}} @linkTasks={{action 'linkToTask'}}/>
+{{!-- <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
       <th>Id</th>
@@ -78,4 +78,4 @@
     </tr>
   </tbody>
   {{/each}}
-</table>
+</table> --}}
