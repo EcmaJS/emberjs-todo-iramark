@@ -1,0 +1,22 @@
+<aside ...attributes>
+  {{log 'missions' @model}}
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Title</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  {{#each @model as |mission|}}
+  <tbody>
+    <tr {{action 'link' mission.id}} class="a2">
+      {{!-- <LinkTo @route="users.user.missions.mission" @model={{mission.id}}> --}}
+        <td>{{mission.title}}</td>
+      {{!-- </LinkTo> --}}
+      <td>{{mission.result}}</td>
+    </tr>
+  </tbody>
+  {{/each}}
+</table>
+</aside>
+{{yield}}

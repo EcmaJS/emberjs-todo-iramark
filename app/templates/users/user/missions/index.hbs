@@ -62,25 +62,15 @@
   </modal.footer>
 </BsModal>
 
-<table class="table table-striped">
+{{log 'model missions table' @model}}
+<TableMissions @model={{@model}} @linkMission={{action 'linkToMission'}} />
+
+{{!-- <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
       <th>Title</th>
       <th>Result</th>
     </tr>
-
-{{!-- <table class="table table-striped">
-  <thead class="thead-dark">
-    <tr>
-      <th>
-        Title
-      </th>
-      <th>
-        Result
-      </th>
-  </tr>
-  </thead>
-</table> --}}
 
   </thead>
   {{#each @model as |mission|}}
@@ -93,4 +83,4 @@
     </tr>
   </tbody>
   {{/each}}
-</table>
+</table> --}}

@@ -38,4 +38,10 @@ export default class UsersUserMissionsIndexController extends Controller {
   showModal() {
     this.toggleProperty('isShowModal')
   }
+
+  @action
+  linkToMission(id) {
+    console.log('id controller', id);
+    this.transitionToRoute('users.user.missions.mission', id);
+  }
 }
